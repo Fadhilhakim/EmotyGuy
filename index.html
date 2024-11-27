@@ -4,148 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>game</title>
 </head>
-
-    <style>
-        .body {
-            padding: 0px;
-            margin: 0px;
-            background-color: #00B8FF;
-            font-family: Arial;
-        }
-        
-        #game {
-            width: 97%;
-            height: 500px;
-            border: 5px solid white;
-            margin: auto;
-            overflow: hidden;
-        }
-        
-        .animation {
-            animation: block 2s infinite linear;
-        }
-        
-        #block {
-            width: 40px;
-            height: 500px;
-            background-color: #55A800;
-            border: 1px solid #366C00;
-            position: relative;
-            left: 290px;
-            
-        }
-        
-        @keyframes block {
-            0%{left: 250px}
-            100%{left: -50px}
-        }
-        
-        .hole{
-            width: 42px;
-            height: 150px;
-            background-color: #00B8FF;
-            position: relative;
-            left: 280px;
-            top: -500px;
-            border-bottom: 15px solid #008C3C;
-            border-top: 15px solid #008C3C;
-            border-radius: 10px;
-        }
-        
-        #character{
-            width: 60px;
-            height: 50px;
-            position: absolute;
-            top: 100px;
-            margin-left: 10px;
-            z-index: 0;
-
-        }
-        
-        .btn {
-            width: 99%;
-            height: 50px;
-            background-color: gray;
-            border: 1px solid black;
-            display: block;
-            text-align: center;
-            margin-top: 5px;
-            margin-left: 1px;
-        }
-        
-        h3 {
-            padding: 20px;
-            color: #3CFF00;
-            border: 5px solid #fff;
-            border-radius: 35px;
-            background-color: #333;
-            position: absolute;
-            justify-content: center;
-            margin-left: 24%;
-            margin-top: 50%;
-            z-index: 10;
-            opacity: 0.7;
-        }
-        
-        .visible {
-            display: none;
-        }
-        
-        .h2 {
-            text-align: center;
-            color: white;
-            width: 50px;
-            padding: 10px;
-            z-index: 20;
-            color: #139200;
-            background-color: #002601;
-            border: 5px solid white;
-            border-end-end-radius: 20px;
-            position: absolute;
-        }
-        
-        .big {
-            width: 350px;
-            height: 300px;
-            opacity: 0.1;
-            margin-left: 10px;
-            margin-top: 20%;
-            z-index: -100;
-        }
-        
-        .range {
-            position: absolute;
-            padding: 10px;
-            margin-top: 70%;
-            margin-left: 28%;
-            z-index: 100;
-            color: white;
-        }
-        
-        .black {
-            width: 50px;
-            height: 50px;
-            float: right;
-            background-color: #333;
-            margin-top: 65px;
-            margin-right: 5px;
-            border-radius: 30px;
-            border: 3px solid white;
-            
-        }
-        
-        .bgblack {
-            background-color: #333;
-            color: #fff;
-        }
-        
-        .bgblue {
-            background-color: #00B8FF;
-            color: #333;
-        }
-    </style>
 
 <body id="body" class="body">
     
@@ -155,7 +16,7 @@
     <!-- <input class="range" type="range" name="range" id="range" value="10" ondragenter="rangeFunction()" /> !-->
     
     <div id="game">
-        <div id="block" class="visible"></div>
+        <div id="block" class="visible"></div>s
         <div id="hole" class="hole visible"></div>
         <div>
         <input type="image" id="character" src="bird.png" alt="bird"/>
@@ -168,97 +29,103 @@
     <audio src="score.wav" id="scora"></audio>
     
     <script>
-    const audio = document.getElementById("bruh");
-    const scoreaudi = document.getElementById("scora");
-    var game = document.getElementById("value");
-    var block = document.getElementById("block");
-    var hole = document.getElementById("hole");
-    var character = document.getElementById("character");
-    var tap = document.getElementById("start");
-    var score = document.getElementById("score");
-    var body = document.getElementById("body");
-    var black = document.getElementById("bgc");
-    //var range = document.getElementById("range");
-    var jumping = 0;
-    var counter = 0;
-    var start = 0;
-    
-    
-    /*function rangeFunction() {
-        if (range == 0) {
-            score.innerText = "EASY"
-        }
-    }*/
-    function star() {
-        audio.play();
-        start = start + 1;
-        character.style.top = 100 + "px";
-        tap.classList.add("visible");
-        block.classList.remove("visible");
-        block.classList.add("animation");
-        hole.classList.remove("visible");
-        hole.classList.add("animation");
-        black.classList.add("visible");
+        const audio = document.getElementById("bruh");
+        const scoreaudi = document.getElementById("scora");
+        var game = document.getElementById("value");
+        var block = document.getElementById("block");
+        var hole = document.getElementById("hole");
+        var character = document.getElementById("character");
+        var tap = document.getElementById("start");
+        var score = document.getElementById("score");
+        var body = document.getElementById("body");
+        var black = document.getElementById("bgc");
+        //var range = document.getElementById("range");
+        var jumping = 0;
+        var counter = 0;
+        var start = 0;
         
-    }
-    
-    function bg() {
-        tap.classList.toggle("bgblue");
-        body.classList.toggle("bgblack");
-        black.classList.toggle("bgblue");
-        hole.classList.toggle("bgblack");
-    }
-    
+        
+        /*function rangeFunction() {
+            if (range == 0) {
+                score.innerText = "EASY"
+            }
+        }*/
+        function star() {
+            
+            start = start + 1;
+            character.style.top = 100 + "px";
+            tap.classList.add("visible");
+            block.classList.remove("visible");
+            block.classList.add("animation");
+            hole.classList.remove("visible");
+            hole.classList.add("animation");
+            black.classList.add("visible");
+            
+        }
+        
+        function bg() {
+            tap.classList.toggle("bgblue");
+            body.classList.toggle("bgblack");
+            black.classList.toggle("bgblue");
+            hole.classList.toggle("bgblack");
+        }
+        
         hole.addEventListener('animationiteration', () => {
-    var random = -((Math.random()*300)+170);
-    hole.style.top = random + "px";
-    counter++;
-    scoreaudi.play();
-    });
-    
-    setInterval(function(){
-        var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+            var random = -((Math.random()*300)+170);
+            hole.style.top = random + "px";
+            counter++;
+            scoreaudi.play();
+        });
+        
+        setInterval(function(){
+            var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+                
+        if(jumping==0){
+            character.style.top = (characterTop+2)+"px";
+                }
+                
+            var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+            var holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
+            var cTop = -(500-characterTop);
             
-    if(jumping==0){
-        character.style.top = (characterTop+2)+"px";
+        if((characterTop>500)||((blockLeft<20)&&(blockLeft>-50)&&((cTop<holeTop)||(cTop>holeTop+170)))) {
+                    character.style.top = 500 + "px";
+                    tap.classList.remove("visible");
+                    block.classList.add("visible");
+                    hole.classList.add("visible");
+                    black.classList.remove("visible");
+                    start=0;
+                    counter=0;
+                }
+            },10);
+                
+                
+        function jump(){
+            if (start > 0) {
+
+                jumping = 1;
+                let jumpCount = 0;
+                var jumpInterval = setInterval(function(){
+
+                    var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
+                    
+                    if((characterTop>6)&&(jumpCount<15)){
+                        character.style.top = (characterTop-2)+"px";
+                    }
+                    if(jumpCount>20){
+                        clearInterval(jumpInterval);
+                        jumping=0;
+                        jumpCount=0;
+                    }
+
+                    jumpCount++;
+                    
+                }, 10);
+
+                score.innerText = counter;
             }
-            
-        var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-        var holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
-        var cTop = -(500-characterTop);
-        
-   if((characterTop>500)||((blockLeft<20)&&(blockLeft>-50)&&((cTop<holeTop)||(cTop>holeTop+170)))) {
-            character.style.top = 500 + "px";
-            tap.classList.remove("visible");
-            block.classList.add("visible");
-            hole.classList.add("visible");
-            black.classList.remove("visible");
-            start=0;
-            counter=0;
-            }
-                },10);
-        
-        
-function jump(){
-    if (start > 0) {
-        jumping = 1;
-    let jumpCount = 0;
-    var jumpInterval = setInterval(function(){
-        var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-        if((characterTop>6)&&(jumpCount<15)){
-            character.style.top = (characterTop-2)+"px";
-        }
-        if(jumpCount>20){
-            clearInterval(jumpInterval);
-            jumping=0;
-            jumpCount=0;
-        }
-        jumpCount++;
-    },10);
-    score.innerText = counter;
-    }
-}        
-    </script>
+        }        
+</script>
     
 </body>
 </html>
